@@ -1,0 +1,22 @@
+{
+  "level-1": ["flower", "book", "hospital", "weapon", "culture", "record"],
+  "level-2": [
+    "expert",
+    "surface",
+    "purpose",
+    "exchange",
+    "anniversary",
+    "especially",
+    "defend",
+    "ordinary"
+  ],
+  "level-3": ["statement", "independent", "bring", "equality", "liberty"],
+  "level-4": [
+    "aptitude",
+    "assure",
+    "substance",
+    "experimental",
+    "struggle",
+    "suppression"
+  ]
+}
