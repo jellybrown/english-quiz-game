@@ -9,9 +9,10 @@
 
 .game_page {
   opacity: 1;
+  transition: 0.5s;
+  transition-delay: 0.5s;
 }
 
 .game_page.remove {
   opacity: 0;
-  transition-delay: 0.3s;
 }

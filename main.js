@@ -37,8 +37,8 @@ const mainPage = document.querySelector(".main_page");
 const gamePage = document.querySelector(".game_page");
 
 const startGame = (fiveWord) => {
-  startTimer();
-  startHeart();
+  // startTimer();
+  // startHeart();
   // 메인화면을 없애는 클래스이름 추가
   mainPage.classList.add("remove");
   gamePage.classList.remove("remove");
