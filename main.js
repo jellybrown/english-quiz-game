@@ -30,15 +30,32 @@ const chooseWord = (words, maxLength) => {
       }
     }
   }
-  console.log(pickWords);
+  return pickWords;
 };
 
-const initGame = (e) => {
+const mainPage = document.querySelector(".main_page");
+const gamePage = document.querySelector(".game_page");
+
+const startGame = (fiveWord) => {
+  startTimer();
+  startHeart();
+  // 메인화면을 없애는 클래스이름 추가
+  mainPage.classList.add("remove");
+  gamePage.classList.remove("remove");
+};
+
+const init = (e) => {
+  // 1. 유저가 레벨을 누름 -> 단어들을 뽑음
   const level = e.target.getAttribute("class");
   const selectedData = wordData[0][level];
   const maxLength = selectedData.length;
 
-  chooseWord(selectedData, maxLength);
+  const fiveWord = chooseWord(selectedData, maxLength);
+  console.log(fiveWord); // [word, 이렇게, 으으]
+
+  // 2. 뽑힌 단어들로 게임을 시작함
+
+  startGame(fiveWord);
 };
 
-btns.addEventListener("click", initGame);
+btns.addEventListener("click", init);

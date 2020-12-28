@@ -1,0 +1,17 @@
+.main_page {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.main_page.remove {
+  opacity: 0;
+}
+
+.game_page {
+  opacity: 1;
+}
+
+.game_page.remove {
+  opacity: 0;
+  transition-delay: 0.3s;
+}
