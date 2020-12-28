@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,28 @@
     <script defer src="main.js"></script>
 </head>
 <body>
-    <div  class="btn_group">
-    <button class="level-1">1단계</button>
-    <button class="level-2">2단계</button>
-    <button class="level-3">3단계</button>
-</div>
+    <section class="main_page">
+        <h1>Check your English word level !</h1>
+        <div class="btn_group">
+            <button class="level-1">1단계</button>
+            <button class="level-2">2단계</button>
+            <button class="level-3">3단계</button>
+            <button class="level-4">4단계</button>
+        </div>
+    </section><!-- main_page -->
+    <section class="game_page">
+        <div class="game_info_top">
+            <span class="timer">00:10</span>
+            <h1 class="level_title">Level 1</h1>
+            <div class="heart">
+                <span>1</span> <!-- 아이콘 -->
+                <span>1</span>
+                <span>1</span>
+            </div>
+        </div>
+        <div class="game_word">statement</div>
+        <input class="answer"/>
+    </section><!-- game_page -->
     <form>
     <input style="display: none;"/>
     <button style="display: none;">정답입력</button>
