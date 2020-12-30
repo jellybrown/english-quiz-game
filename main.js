@@ -35,6 +35,13 @@ const chooseWord = (words, maxLength) => {
 
 const mainPage = document.querySelector(".main_page");
 const gamePage = document.querySelector(".game_page");
+const wordSection = document.querySelector(".game_word");
+const answer = document.querySelector(".answer");
+
+const serverData = () => ({
+  data: [성명, 진술, 진술서],
+});
+let userAnswer;
 
 const startGame = (fiveWord) => {
   // startTimer();
@@ -42,6 +49,10 @@ const startGame = (fiveWord) => {
   // 메인화면을 없애는 클래스이름 추가
   mainPage.classList.add("remove");
   gamePage.classList.remove("remove");
+  wordSection.innerHTML = fiveWord[0];
+  //단어넣는 부분 함수로 빼기
+  //answer: input에 입력한 정답
+  //인풋들에게 add이벤트 하기
 };
 
 const init = (e) => {
