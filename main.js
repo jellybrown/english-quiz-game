@@ -1,7 +1,5 @@
 "use strict";
 
-const PICK_WORD_LENGTH = 5; //게임의 단어 갯수
-
 const btns = document.querySelector(".btn_group");
 
 let wordData = [];
@@ -12,6 +10,8 @@ fetch("./data.json")
 let random;
 let pickFinish = false;
 let fiveWord;
+let score;
+
 const chooseWord = (words, maxLength) => {
   //랜덤숫자 5개를 만들고 뽑기
   let pickWords = [];
@@ -42,8 +42,11 @@ const answer = document.querySelector(".answer");
 const serverData = () => ({
   data: [성명, 진술, 진술서],
 });
-let enteredAnswer;
+const totalScore = 5;
 let index = 0;
+let userScore;
+let enteredAnswer;
+
 const startGame = (fiveWord) => {
   // startTimer();
   // startHeart();
@@ -57,7 +60,7 @@ const startGame = (fiveWord) => {
   //한 단어마다 게임이 실행되어야 함 -> 5번의 함수를 호출
   // 정답이 맞으면 앤서리스너와 다음단어를 가져오는 함수를 호출
 
-  answerListener(); // 한번 실행하면 계속 있을것
+  // answerListener(); // 한번 실행하면 계속 있을것
   openNextWord(0);
   console.log("glgl");
 };
@@ -69,24 +72,26 @@ const openNextWord = (index) => {
   }, 1500);
 };
 const serverResponse = "안녕";
-const answerListener = () => {
-  // 이아이는 브라우저가 닫힐때까지 있을것, 점수가 나오면 꺼줘야하나?
-  document.addEventListener("keypress", function (e) {
-    if (e.target.classList.contains("answer")) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        enteredAnswer = e.target.value;
-        //서버에 enteredAnswer 보내서 결과 가져오기
-        console.log(enteredAnswer);
-        if (enteredAnswer === serverResponse) {
-          index++;
-          openNextWord(index);
-        }
-        //정답이 맞으면 openNextWord(index)를 부른다. index에는 다음번호를 불러준다.
+
+// 이아이는 브라우저가 닫힐때까지 있을것, 점수가 나오면 꺼줘야하나?
+document.addEventListener("keypress", function (e) {
+  if (e.target.classList.contains("answer")) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      enteredAnswer = e.target.value;
+      //서버에 enteredAnswer 보내서 결과 가져오기
+      console.log(enteredAnswer);
+
+      if (enteredAnswer === serverResponse) {
+        console.log(index, "정답");
+        index++;
+        openNextWord(index);
       }
+
+      //정답이 맞으면 openNextWord(index)를 부른다. index에는 다음번호를 불러준다.
     }
-  });
-};
+  }
+});
 
 const init = (e) => {
   // 1. 유저가 레벨을 누름 -> 단어들을 뽑음
