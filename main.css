@@ -3,7 +3,7 @@
   transition: 0.5s;
 }
 
-.main_page.remove {
+.main_page.hide {
   opacity: 0;
 }
 
@@ -13,6 +13,6 @@
   transition-delay: 0.5s;
 }
 
-.game_page.remove {
+.game_page.hide {
   opacity: 0;
 }

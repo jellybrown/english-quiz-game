@@ -48,8 +48,8 @@ const startGame = (fiveWord) => {
   // startTimer();
   // startHeart();
   // 메인화면을 없애는 클래스이름 추가
-  mainPage.classList.add("remove");
-  gamePage.classList.remove("remove");
+  mainPage.classList.add("hide");
+  gamePage.classList.remove("hide");
 
   //단어넣는 부분 함수로 빼기
   //answer: input에 입력한 정답
