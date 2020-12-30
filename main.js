@@ -64,7 +64,9 @@ const startGame = (fiveWord) => {
 
 //첫 단어가 나오려면 먼저 openNextWord를 한번 실행해야하나?
 const openNextWord = (index) => {
-  wordSection.innerHTML = fiveWord[index];
+  setTimeout(() => {
+    wordSection.innerHTML = fiveWord[index];
+  }, 1500);
 };
 const serverResponse = "안녕";
 const answerListener = () => {
