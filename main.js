@@ -52,7 +52,19 @@ const startGame = (fiveWord) => {
   wordSection.innerHTML = fiveWord[0];
   //단어넣는 부분 함수로 빼기
   //answer: input에 입력한 정답
-  //인풋들에게 add이벤트 하기
+
+  answerListener();
+};
+const answerListener = () => {
+  document.addEventListener("keypress", function (e) {
+    if (e.target.classList.contains("answer")) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        const enteredAnswer = e.target.value;
+        console.log(enteredAnswer);
+      }
+    }
+  });
 };
 
 const init = (e) => {
