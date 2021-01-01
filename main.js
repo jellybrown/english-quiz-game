@@ -3,7 +3,7 @@ import Word from "/word.js";
 
 const btns = document.querySelector(".btn_group");
 const word = new Word();
-console.log(word);
+
 let wordData = [];
 fetch("./data.json")
   .then((response) => response.json())
@@ -11,11 +11,6 @@ fetch("./data.json")
 
 let fiveWord;
 let score;
-
-const chooseWord = (words, maxLength) => {
-  //랜덤숫자 5개를 만들고 뽑기
-  word.choose(words, maxLength);
-};
 
 const mainPage = document.querySelector(".main_page");
 const gamePage = document.querySelector(".game_page");
