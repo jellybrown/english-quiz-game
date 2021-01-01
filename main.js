@@ -73,11 +73,11 @@ const openNextWord = (index) => {
 };
 const serverResponse = "안녕";
 
-// 이아이는 브라우저가 닫힐때까지 있을것, 점수가 나오면 꺼줘야하나?
-document.addEventListener("keypress", function (e) {
+const answerListener = document.addEventListener("keypress", function (e) {
   if (e.target.classList.contains("answer")) {
     if (e.key === "Enter") {
       e.preventDefault();
+      if (index === 5) return;
       enteredAnswer = e.target.value;
       //서버에 enteredAnswer 보내서 결과 가져오기
       console.log(enteredAnswer);
