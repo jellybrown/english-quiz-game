@@ -1,7 +1,9 @@
-class Word {
+export default class Word {
   constructor() {}
 
   choose(words, maxLength) {
+    let random;
+    let pickFinish = false;
     let pickWords = [];
     let pickNumbers = [];
 
@@ -22,5 +24,3 @@ class Word {
     return pickWords;
   }
 }
-
-export default Word;

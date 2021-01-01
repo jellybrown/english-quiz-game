@@ -1,37 +1,20 @@
 "use strict";
+import Word from "/word.js";
 
 const btns = document.querySelector(".btn_group");
-
+const word = new Word();
+console.log(word);
 let wordData = [];
 fetch("./data.json")
   .then((response) => response.json())
   .then((data) => wordData.push(data));
 
-let random;
-let pickFinish = false;
 let fiveWord;
 let score;
 
 const chooseWord = (words, maxLength) => {
   //랜덤숫자 5개를 만들고 뽑기
-  let pickWords = [];
-  let pickNumbers = [];
-
-  for (let i = 0; i < 20; i++) {
-    if (!pickFinish) {
-      random = Math.floor(Math.random() * maxLength);
-      if (pickNumbers.includes(random)) {
-        random = Math.floor(Math.random() * maxLength);
-      } else {
-        pickWords.push(words[random]);
-        pickNumbers.push(random);
-      }
-      if (pickNumbers.length === 5) {
-        pickFinish = true;
-      }
-    }
-  }
-  return pickWords;
+  word.choose(words, maxLength);
 };
 
 const mainPage = document.querySelector(".main_page");
@@ -53,7 +36,7 @@ const startGame = (fiveWord) => {
   // 메인화면을 없애는 클래스이름 추가
   mainPage.classList.add("hide");
   gamePage.classList.remove("hide");
-
+  console.log(fiveWord);
   //단어넣는 부분 함수로 빼기
   //answer: input에 입력한 정답
 
@@ -99,7 +82,8 @@ const init = (e) => {
   const selectedData = wordData[0][level];
   const maxLength = selectedData.length;
 
-  fiveWord = chooseWord(selectedData, maxLength);
+  fiveWord = word.choose(selectedData, maxLength);
+
   console.log(fiveWord); // [word, 이렇게, 으으]
 
   // 2. 뽑힌 단어들로 게임을 시작함
